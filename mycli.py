@@ -4,7 +4,7 @@ import os
 colors = {"ERROR": "red", "FILE": "blue", "DIR": "yellow"}
 indent = 4
 
-
+# ? it is a important deccorator for lunching click!
 @click.command()
 def hello():
     path = os.getcwd()
@@ -17,6 +17,7 @@ def hello():
         current_len = len(directory)
         indent_needed = max_char_len - current_len + indent
         if os.path.isfile(abs_dir):
+            # ? it is a important to add colorama for color styling!
             click.echo(click.style(
                 " ".join([directory, " "*indent_needed,    "--file--"]), fg=colors["DIR"]))
         else:
